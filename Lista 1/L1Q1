@@ -1,0 +1,38 @@
+/*1. Numa disciplina são dadas duas provas e dois trabalhos, mas a média é calculada considerando-se apenas a maior nota de prova e a maior nota de trabalho. 
+Elabore um algoritmo que, dadas as quatro notas de um aluno, informe a sua média. Para isso, utilize duas funções: uma que determine o maior valor entre as notas 
+(de provas ou de trabalhos) e outra que calcule a média aritmética das duas maiores notas. */
+
+#include <iostream>
+using namespace std;
+
+int maiorNota (int nota1, int nota2);
+int calcularMedia (int nota1, int nota2, int nota3, int nota4);
+
+int main() {
+  float nota1, nota2, nota3, nota4, media;
+
+  cout << "\nDigite a nota das duas provas:";
+  cin >> nota1 >> nota2;
+
+  cout << "\nDigite a nota dos dois trabalhos: ";
+  cin >> nota3 >> nota4;
+
+  media = calcularMedia(nota1, nota2, nota3, nota4);
+
+  cout << "\nA média do aluno é: " << media;
+  
+}
+
+int maiorNota (int nota1, int nota2) {
+  if (nota1 > nota2) {
+    return nota1;
+  } else if (nota1 < nota2) {
+    return nota2;
+  }
+}
+int calcularMedia (int nota1, int nota2, int nota3, int nota4){
+  int maiorProva = maiorNota(nota1, nota2);
+  int maiorTrabalho = maiorNota(nota3, nota4);
+  return (maiorProva + maiorTrabalho) / 2;
+}
+  
